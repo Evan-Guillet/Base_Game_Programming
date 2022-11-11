@@ -8,7 +8,7 @@ space_ship = {} -- tableau
 -- listes d'éléments
 list_sprites = {}
 list_shoots = {}
-list_aliens = {}
+list_enemy = {}
 
 soundShoot = love.audio.newSource("sons/shoot.wav", "static")
 
@@ -17,22 +17,50 @@ soundShoot = love.audio.newSource("sons/shoot.wav", "static")
 ---------------{LEVEL 16x12}---------------
 level = {}
 level = {
-            {0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},
-            {0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},
-            {0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},
-            {0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0},
-            {0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0},
-            {0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0},
-            {0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0},
-            {0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0},
-            {0,0,0,0,0,0,2,2,2,2,2,2,2,2,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
-            {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
-            {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
-            {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
-            {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4},
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,2,2,2,2,2,2,2,2,0,0 },
+            { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,2,2,2,2,2,2,2,2,0,0 },
+            { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,2,2,2,2,2,2,2,2,0,0 },
+            { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0 },
+            { 0,0,0,0,0,0,2,2,2,2,2,2,2,2,0,0 },
+            { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+            { 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3 },
         }
 
 
@@ -40,56 +68,65 @@ level = {
 ---------------{CAMÉRA}---------------
 camera = {}
 camera.y = 0
+camera.speed = 1
 
 
 
 ---------------{TILES}---------------
 tilesMap = {}
 local indexMap
-for indexMap = 1, 4 do
-    tilesMap[indexMap] = love.graphics.newImage("images/tile_"..indexMap..".png")
+for indexMap = 1, 3 do
+    tilesMap[indexMap] = love.graphics.newImage("images/tile_"..indexMap.."(2).png")
 end
 
 
 
-function CreateAlien(pType, pX, pY)
+function CreateEnemy(pType, pX, pY)
 
-    local pictName = ""
+    local picName = ""
 
     if pType == 1 then
-        pictName = "enemy1"
+        picName = "alien_1(2)"
     elseif pType == 2 then
-        pictName = "enemy2"
+        picName = "alien_2(2)"
     elseif pType == 3 then
-        pictName = "enemy3"
+        picName = "alien_3(2)"
+    elseif pType == 4 then
+        picName = "turret(2)"
     end
 
-    local alien = CreateSprite(pictName, pX, pY)
+    local enemy = CreateSprite(picName, pX, pY)
+
+    enemy.asleep = true
 
     if pType == 1 then
-        alien.vx = 0
-        alien.vy = 2
+        enemy.vx = 0
+        enemy.vy = 2
 
     elseif pType == 2 then
         local direction = math.random(1, 2)
         if direction == 1 then
-            alien.vx = 1
+            enemy.vx = 1
         else
-            alien.vx = -1
+            enemy.vx = -1
         end
-        alien.vy = 2
+        enemy.vy = 2
 
     elseif pType == 3 then
         local direction = math.random(1, 2)
         if direction == 1 then
-            alien.vx = 1
+            enemy.vx = 1
         else
-            alien.vx = -1
+            enemy.vx = -1
         end
-        alien.vy = 2
+        enemy.vy = 2
+
+    elseif pType == 4 then
+        enemy.vx = 0
+        enemy.vy = camera.speed
     end
 
-    table.insert(list_aliens, alien)
+    table.insert(list_enemy, enemy)
 end
 
 
@@ -119,7 +156,7 @@ function love.load()
     HEIGHT_SCREEN = love.graphics.getHeight()
 
     WIDTH_MAP = 16
-    HEIGHT_MAP = 16
+    HEIGHT_MAP = #level
     
     StartGame()
 end
@@ -131,16 +168,29 @@ function StartGame()
     space_ship.x = WIDTH_SCREEN/2
     space_ship.y = HEIGHT_SCREEN - (space_ship.height*2)
     
-    CreateAlien(1, WIDTH_SCREEN/2, 100)
-    CreateAlien(2, WIDTH_SCREEN/4, 100)
-    CreateAlien(3, WIDTH_SCREEN*0.75, 100)
+    -- création d'enemy
+    local line = 4
+    local column = 7
+    CreateEnemy(1, (64/2)+(64*(column-1)), -(64/2)-(64*(line-1)))
+    line = 10
+    column = 2
+    CreateEnemy(2, (64/2)+(64*(column-1)), -(64/2)-(64*(line-1)))
+    line = 7
+    column = 14
+    CreateEnemy(2, (64/2)+(64*(column-1)), -(64/2)-(64*(line-1)))
+    line = 7
+    column = 2
+    CreateEnemy(2, (64/2)+(64*(column-1)), -(64/2)-(64*(line-1)))
+    line = 12
+    column = 2
+    CreateEnemy(4, (64/2)+(64*(column-1)), -(64/2)-(64*(line-1)))
 end
 
 
 
 function love.update(dt)
 
-    camera.y = camera.y + 1
+    camera.y = camera.y + camera.speed
 
     local indexList
 
@@ -163,17 +213,25 @@ function love.update(dt)
         end
     end
 
-    -------------------------{ALIENS}-------------------------
-    for indexList = #list_aliens, 1, -1 do
-        local alien = list_aliens[indexList]
+    -------------------------{ENEMYS}-------------------------
+    for indexList = #list_enemy, 1, -1 do
+        local enemy = list_enemy[indexList]    -- récupère l'enemy indexé dans la liste
 
-        alien.x = alien.x + alien.vx
-        alien.y = alien.y + alien.vy
+        if enemy.y >= 0 then
+            enemy.asleep = false
+        end
 
-        ---------------{VÉRIFIE SI LES ALIENS NE SONT PAS SORTIS DE L'ÉCRAN}---------------
-        if alien.y > HEIGHT_SCREEN then
-            alien.delete = true
-            table.remove(list_aliens, indexList)
+        if enemy.asleep == false then
+            enemy.x = enemy.x + enemy.vx
+            enemy.y = enemy.y + enemy.vy
+        else
+            enemy.y = enemy.y + camera.speed
+        end
+
+        ---------------{VÉRIFIE SI LES ENEMYS NE SONT PAS SORTIS DE L'ÉCRAN}---------------
+        if enemy.y > HEIGHT_SCREEN then
+            enemy.delete = true
+            table.remove(list_enemy, indexList)
         end
     end
 
@@ -221,7 +279,7 @@ function love.draw()
 
     love.graphics.print("Nombre de tirs : "..#list_shoots, 0, 0)
     love.graphics.print("Nombre de Sprites : "..#list_sprites, 0, 20)
-    love.graphics.print("Nombre d'alien : "..#list_aliens, 0, 40)
+    love.graphics.print("Nombre d'enemy : "..#list_enemy, 0, 40)
 end
 
 
